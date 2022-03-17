@@ -1,47 +1,50 @@
-// space, horror, military, romantic, cowboy, fantasty, superhero
-favouriteMovieGenre("fantasy")
+// Challenge 2:
+// Replace the arguments below according to your preference.
+
+// space, scary, military, romantic, cowboy, fantasy, superhero
+favouriteMovieGenre("space")
 
 // watermelon, tomato, banana, orange, avocado, blueberry
-favouriteFruit("banana")
+favouriteFruit("avocado")
 
-// What are you? Superhero Banana? Romantic Tomato?
-// Share your image in Discord and let us know!
-
-
-// Bonus: adjust these as well
 // light, dark
-lightOrDark("dark")
-// square, soft, round
-favouriteShape("square")
+favouriteMode("dark")
 
+// sharp, soft, round
+favouriteEdgeStyle("soft")
+
+
+
+////////////////////////////////////
+// IGONE THE CODE BELOW THIS LINE //
+////////////////////////////////////
 
 function setProp(prop, value) {
     document.documentElement.style.setProperty(prop, value)
 }
 
-function favouriteShape(style) {
+function favouriteEdgeStyle(style) {
     setProp("--image", "var(--" + style + ")");
 }
 
 function favouriteMovieGenre(font) {
-    setProp("--font", "var(--" + font + ")");
+    if (font) {
+        setProp("--font", "var(--" + font + ")");    
+    }
 }
 
-function lightOrDark(mode) {
-    if (mode === "light") {
+function favouriteMode(mode) {
+    if (mode === "light" || !mode) {
         setProp('--background', "var(--light)");
         setProp('--text', "var(--dark)");
-    } else {
+    } else if (mode === "dark") {
         setProp('--background', "var(--dark)");
         setProp('--text', "var(--light)");
     }
 }
 
 function favouriteFruit(theme) {
-    if (theme === "regular") {
-        setProp('--light', "#f5f5f5")
-        setProp('--dark', "#222222")
-    } else if (theme === "pastel") {
+    if (theme === "pastel") {
         setProp('--light', "#f2f6c3")
         setProp('--dark', "#68c4af")
     } else if (theme === "muted") {
@@ -77,11 +80,10 @@ function favouriteFruit(theme) {
     } else if (theme === "blueberry") {
         setProp('--light', "#41a8f9")
         setProp('--dark', "#064490")
-    }
-    
-    
-    
-    
+    } else  {
+        setProp('--light', "#f5f5f5")
+        setProp('--dark', "#222222")
+    } 
 }
 
 
